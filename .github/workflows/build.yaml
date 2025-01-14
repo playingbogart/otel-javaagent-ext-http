@@ -1,5 +1,6 @@
 name: Gradle Build and Release
-
+permissions:
+  contents: write
 on:
   push:
     tags:
@@ -26,6 +27,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ github.ref }}
-          files: build/libs/*.jar
+          files: build/libs/*-all.jar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
